@@ -91,7 +91,7 @@
                         </div> --}}
                        <!-- Tombol untuk memicu collapse -->
 
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('materi.index') }}">
                             <div class="nav-link-icon"><i data-feather="user"></i></div>
                            materi
                         </a>

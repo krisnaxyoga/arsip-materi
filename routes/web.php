@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
-
+    Route::resource('/materi', \App\Http\Controllers\Admin\MateriController::class);
 });
 
 // untuk vendor
