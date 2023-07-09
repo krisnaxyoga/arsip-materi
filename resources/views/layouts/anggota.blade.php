@@ -64,73 +64,53 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Main</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/admin">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
+                        <a class="nav-link" href="{{ route('anggota.index') }}">
+                            <div class="nav-link-icon"><i data-feather="box"></i></div>
+                            anggota
+                        </a>
                         <a class="nav-link" href="#" data-toggle="collapse" data-target="#agentCollapse" aria-expanded="false" aria-controls="agentCollapse">
                             <div class="nav-link-icon"><i data-feather="box"></i></div>
-                            Agents
+                            tim multimedia
                         </a>
-                        <div id="agentCollapse" class="collapse">
+                        {{-- <div id="agentCollapse" class="collapse">
                             <!-- Isi menu -->
                             <ul>
                                 <li class="list-unstyled">
-                                    <a class="nav-link" href="{{ route('dashboard.agent') }}">All agent</a>
+                                    <a class="nav-link" href="">All agent</a>
                                 </li>
                                 <li class="list-unstyled">
-                                    <a class="nav-link" href="{{ route('dashboard.agent.create') }}">
+                                    <a class="nav-link" href="">
                                         Add New agent
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                        <!-- Tombol untuk memicu collapse -->
-                       <a class="nav-link" href="#" data-toggle="collapse" data-target="#menuCollapse" aria-expanded="false" aria-controls="menuCollapse">
-                        <div class="nav-link-icon"><i class="fa fa-building"></i></div>
-                        Hotel
-                       </a>
-
-                        <!-- Elemen yang akan di-collapse atau di-expand -->
-                        <div id="menuCollapse" class="collapse">
-                            <!-- Isi menu -->
-                            <ul>
-                                <li class="list-unstyled">
-                                    <a href="{{route('dashboard.hotel')}}" class="nav-link">All hotel</a>
-                                </li>
-                                <li class="list-unstyled">
-                                    <a class="nav-link" href="{{route('dashboard.hotel.create')}}">
-                                        Add New hotel
-                                    </a>
-                                </li>
-                                <li class="list-unstyled">
-                                    <a href="#" class="nav-link">
-                                        Atributes
-                                    </a>
-                                </li>
-                                <li class="list-unstyled">
-                                    <a href="#" class="nav-link">
-                                        Room Atributes
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a class="nav-link" href="{{route('dashboard.user')}}">
+                       <a class="nav-link" href="{{ route('category.index') }}">
+                        <div class="nav-link-icon"><i data-feather="user"></i></div>
+                       category materi
+                    </a>
+                        <a class="nav-link" href="{{ route('materi.index') }}">
                             <div class="nav-link-icon"><i data-feather="user"></i></div>
-                           Users
+                           materi
                         </a>
                         <a class="nav-link" href="#">
                             <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
-                           Report
+                           komentar
+                        </a>
+
+                        <a class="nav-link" href="#">
+                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
+                           cetak anggota
                         </a>
                         {{-- <a class="nav-link" href="{{ route('dashboard.pengiriman.index') }}">
                             <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
                            Pengiriman
                         </a> --}}
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="settings"></i></div>
-                           Setting
-                        </a>
                     </div>
                 </div>
                 <div class="sidenav-footer">

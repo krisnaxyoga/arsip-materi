@@ -31,9 +31,9 @@ class AuthController extends Controller
                 return redirect()->intended('/admin');
             } else if (auth()->user()->role_id === 2) {
                 // jika user vendordashboard
-                return redirect()->intended('/petugas');
+                return redirect()->intended('/dashboard/petugas');
             }else{
-                return redirect()->intended('/anggota');
+                return redirect()->intended('/dashboard/anggota');
             }
         }
 

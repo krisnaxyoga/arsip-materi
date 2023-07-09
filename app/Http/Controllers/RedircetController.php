@@ -11,9 +11,9 @@ class RedircetController extends Controller
         if (auth()->user()->role_id === 1) {
             return redirect('/admin');
         } else if (auth()->user()->role_id === 2) {
-            return redirect('/petugas');
+            return redirect('/dashboard/petugas');
         } else{
-            return redirect('/anggota');
+            return redirect('/dashboard/anggota');
         }
     }
 }

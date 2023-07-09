@@ -18,7 +18,17 @@
                     <form action="@if($model->exists) {{ route('materi.update', $model->id) }} @else {{ route('materi.store') }} @endif" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method($model->exists ? 'PUT' : 'POST')
-
+                        <div class="form-group">
+                            <label class="small mb-1">Name of category <span class="text-danger">*</span></label>
+                            <select name="category_id" id="" class="form-select form-control">
+                                <option value="">Select name of category</option>
+                                @foreach ($category as $item )
+                                    <option value="{{ $item->id }}" {{ old('category_id', $model->category_id) == $item->id ? 'selected' : '' }}>
+                                        {{ $item->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label class="small mb-1">Name <span class="text-danger">*</span></label>
                             <input class="form-control form-control-solid" name="name" type="text" placeholder="Name" value="{{ old('name', $model->name) }}" />

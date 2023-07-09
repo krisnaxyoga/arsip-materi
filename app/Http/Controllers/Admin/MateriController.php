@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Materi;
+use App\Models\Category;
+
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -26,8 +29,8 @@ class MateriController extends Controller
     public function create()
     {
         $model = new Materi;
-
-        return view('admin.materi.form',compact('model'));
+        $category = Category::all();
+        return view('admin.materi.form',compact('model','category'));
     }
 
     /**
@@ -57,6 +60,8 @@ class MateriController extends Controller
 
             $data = new Materi();
             $data->name = $request->name;
+
+            $data->category_id = $request->category_id;
             $data->user_id = $iduser;
             $data->description = $request->description;
             $data->file = $file;
@@ -81,7 +86,10 @@ class MateriController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $model = Materi::find($id);
+
+        $category = Category::all();
+        return view('admin.materi.form',compact('model','category'));
     }
 
     /**
@@ -90,6 +98,52 @@ class MateriController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
+
+        $post = Materi::findorfail($id);
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors())
+                ->withInput($request->all());
+        } else {
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('files'), $filename);
+
+                // Lakukan hal lain yang diperlukan, seperti menyimpan nama file dalam database
+            }
+            if ($request->file('file') != null) {
+                if ($request->hasFile('file')) {
+                    $file = $request->file('file');
+
+                    if (File::exists(public_path($post->file))) {
+                        File::delete(public_path($post->file));
+                    }
+                    $filename = time() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('files'), $filename);
+
+                    // Lakukan hal lain yang diperlukan, seperti menyimpan nama file dalam database
+                }
+                $file = "/files/" . $filename;
+            } else {
+                $file = $post->file;
+            }
+
+            $data = Materi::find($id);
+            $data->name = $request->name;
+            $data->category_id = $request->category_id;
+            $data->description = $request->description;
+            $data->file = $file;
+            $data->save();
+
+            return redirect()
+                ->route('materi.index')
+                ->with('message', 'Data berhasil disimpan.');
+        }
     }
 
     /**
@@ -97,6 +151,12 @@ class MateriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Materi::find($id);
+        if (File::exists(public_path($data->file))) {
+            File::delete(public_path($data->file));
+        }
+        $data->delete();
+        return redirect()->back()->with('message', 'materi berhasil dihapus');
+
     }
 }

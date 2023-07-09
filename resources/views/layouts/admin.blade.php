@@ -64,11 +64,11 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Main</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/admin">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#agentCollapse" aria-expanded="false" aria-controls="agentCollapse">
+                        <a class="nav-link" href="{{ route('anggota.index') }}">
                             <div class="nav-link-icon"><i data-feather="box"></i></div>
                             anggota
                         </a>
@@ -90,7 +90,10 @@
                             </ul>
                         </div> --}}
                        <!-- Tombol untuk memicu collapse -->
-
+                       <a class="nav-link" href="{{ route('category.index') }}">
+                        <div class="nav-link-icon"><i data-feather="user"></i></div>
+                       category materi
+                    </a>
                         <a class="nav-link" href="{{ route('materi.index') }}">
                             <div class="nav-link-icon"><i data-feather="user"></i></div>
                            materi

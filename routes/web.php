@@ -29,16 +29,18 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
     Route::resource('/materi', \App\Http\Controllers\Admin\MateriController::class);
+    Route::resource('/admin/anggota', \App\Http\Controllers\Admin\AnggotaController::class);
+    Route::resource('/category', \App\Http\Controllers\Admin\CategoryController::class);
 });
 
 // untuk vendor
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
-    Route::get('/petugas', [\App\Http\Controllers\Petugas\DashboardController::class, 'index']);
+    Route::get('/dashboard/petugas', [\App\Http\Controllers\Petugas\DashboardController::class, 'index'])->name('dashboard.petugas');
 
 });
 
 // untuk agent
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
-    Route::get('/anggota', [\App\Http\Controllers\Anggota\DashboardController::class, 'index']);
+    Route::get('/dashboard/anggota', [\App\Http\Controllers\Anggota\DashboardController::class, 'index'])->name('dashboard.anggota');
 
 });
