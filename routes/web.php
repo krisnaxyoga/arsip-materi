@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::resource('/materi', \App\Http\Controllers\Admin\MateriController::class);
     Route::resource('/admin/anggota', \App\Http\Controllers\Admin\AnggotaController::class);
     Route::resource('/category', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('/admin/petugas', \App\Http\Controllers\Admin\PetugasController::class);
 });
 
 // untuk vendor

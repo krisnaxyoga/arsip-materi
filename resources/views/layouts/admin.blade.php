@@ -72,7 +72,7 @@
                             <div class="nav-link-icon"><i data-feather="box"></i></div>
                             anggota
                         </a>
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#agentCollapse" aria-expanded="false" aria-controls="agentCollapse">
+                        <a class="nav-link" href="{{ route('petugas.index') }}">
                             <div class="nav-link-icon"><i data-feather="box"></i></div>
                             tim multimedia
                         </a>
