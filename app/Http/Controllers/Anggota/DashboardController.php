@@ -8,6 +8,9 @@ use App\Models\Sertifikat;
 use App\Models\Anggota;
 use App\Models\Komentar;
 use App\Models\Materi;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -36,6 +39,38 @@ class DashboardController extends Controller
         $data = Sertifikat::where('anggota_id',$anggota->id)->get();
 
         return view('anggota.sertif',compact('data'));
+    }
+    public function password()
+    {
+        $model = new User();
+        return view('anggota.password',compact('model'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function passwordstrore(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors())
+                ->withInput($request->all());
+        } else {
+
+            $id = auth()->user()->id;
+            $user = User::find($id);
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            return redirect()
+                ->back()
+                ->with('message', 'change password success');;
+        }
     }
 
     /**

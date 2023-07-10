@@ -23,7 +23,6 @@
                         <h2>@yield('title')</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('anggota.create') }}" class="btn btn-primary mb-2">add</a>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -48,16 +47,7 @@
                                         <td>{{ $item->birtday }}</td>
                                         <td>{{ $item->alamat }}</td>
                                         <td>
-                                            <a href="{{ route('anggota.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
-
-                                            <form class="d-inline" action="{{ route('anggota.destroy',$item->id) }}" method="POST" onSubmit="return confirm('Apakah anda yakin akan menghapus data ini?');">
-                                                @csrf
-                                                @method('delete')
-
-                                                <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-                                            </form>
+                                            <a href="{{ route('sertifikatbypetugas.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-plus"></i></a>
                                         </td>
 
                                     </tr>

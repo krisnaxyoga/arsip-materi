@@ -41,13 +41,21 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     
     Route::delete('/adm/comment/delete/{id}',[\App\Http\Controllers\Admin\CommentController::class, 'delete'])->name('comment.delete');
     Route::get('/cetak/cetak',[\App\Http\Controllers\Admin\AnggotaController::class, 'print'])->name('cetakpdf.cetak');
+    Route::get('/password/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'password'])->name('password.admin');
+    
+    Route::post('/passwordadmin/store', [\App\Http\Controllers\Admin\DashboardController::class, 'passwordstrore'])->name('passwordadmin.store');
 });
 
 // untuk vendor
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/dashboard/petugas', [\App\Http\Controllers\Petugas\DashboardController::class, 'index'])->name('dashboard.petugas');
+    
+    Route::get('/password/petugas', [\App\Http\Controllers\Petugas\DashboardController::class, 'password'])->name('password.petugas');
+    
+    Route::post('/passwordpetugas/store', [\App\Http\Controllers\Petugas\DashboardController::class, 'passwordstrore'])->name('passwordpetugas.store');
     Route::resource('/arsipmateri', \App\Http\Controllers\Petugas\MateriController::class);
     Route::resource('/petugas/commentpetugas', \App\Http\Controllers\Petugas\CommentController::class);
+    Route::resource('/sertifikatbypetugas', \App\Http\Controllers\Petugas\SertifikatController::class);
 });
 
 // untuk agent
@@ -56,4 +64,8 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/dashboard/anggota/materi', [\App\Http\Controllers\Anggota\MateriController::class, 'index'])->name('dashboard.anggota.materi');
     Route::resource('/anggota/jamaattanya', \App\Http\Controllers\Anggota\CommentController::class);
     Route::get('/dashboard/anggota/sertif', [\App\Http\Controllers\Anggota\DashboardController::class, 'sertif'])->name('dashboard.anggota.sertif');
+    Route::get('/password/anggota', [\App\Http\Controllers\Anggota\DashboardController::class, 'password'])->name('password.anggota');
+    
+    Route::post('/passwordanggota/store', [\App\Http\Controllers\Anggota\DashboardController::class, 'passwordstrore'])->name('passwordanggota.store');
+   
 });
