@@ -69,11 +69,11 @@
                             Dashboard
                         </a>
                         <a class="nav-link" href="{{ route('anggota.index') }}">
-                            <div class="nav-link-icon"><i data-feather="box"></i></div>
+                            <div class="nav-link-icon"><i data-feather="user"></i></div>
                             anggota
                         </a>
                         <a class="nav-link" href="{{ route('petugas.index') }}">
-                            <div class="nav-link-icon"><i data-feather="box"></i></div>
+                            <div class="nav-link-icon"><i data-feather="users"></i></div>
                             tim multimedia
                         </a>
                         {{-- <div id="agentCollapse" class="collapse">
@@ -91,20 +91,20 @@
                         </div> --}}
                        <!-- Tombol untuk memicu collapse -->
                        <a class="nav-link" href="{{ route('category.index') }}">
-                        <div class="nav-link-icon"><i data-feather="user"></i></div>
+                        <div class="nav-link-icon"><i data-feather="book"></i></div>
                        category materi
                     </a>
                         <a class="nav-link" href="{{ route('materi.index') }}">
-                            <div class="nav-link-icon"><i data-feather="user"></i></div>
+                            <div class="nav-link-icon"><i data-feather="book"></i></div>
                            materi
                         </a>
                         <a class="nav-link" href="{{route('comment.index')}}">
-                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
+                            <div class="nav-link-icon"><i class="fas fa-fw fa-comment"></i></div>
                            komentar
                         </a>
 
                         <a class="nav-link" href="{{route('form.cetak')}}">
-                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
+                            <div class="nav-link-icon"><i class="fas fa-fw fa-file-pdf"></i></div>
                            cetak anggota
                         </a>
                     </div>
