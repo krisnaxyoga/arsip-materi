@@ -113,6 +113,7 @@ class PetugasController extends Controller
             $user = User::find($data->user_id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->password = Hash::make('password123');
             $user->save();
 
             return redirect()
