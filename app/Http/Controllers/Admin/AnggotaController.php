@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Anggota;
 use App\Models\User;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
@@ -75,9 +77,24 @@ class AnggotaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function print(Request $request)
     {
-        //
+        $start = Carbon::parse($request->start)->format('Y-m-d');
+        $end = Carbon::parse($request->end)->format('Y-m-d'); 
+        // dd($start);
+        if($start && $end){
+            $data = Anggota::whereBetween(DB::raw('DATE(created_at)'), [$start, $end])->get();
+            // dd($data);
+        }else{
+            $data = Anggota::all();
+        }
+        $data = $data;
+        return view('admin.cetak.print',compact('data'));
+    }
+
+    public function formprint()
+    {
+        return view('admin.cetak.index');
     }
 
     /**

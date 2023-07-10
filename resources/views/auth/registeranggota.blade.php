@@ -15,31 +15,17 @@
             @endif
 
             <div class="card-body">
-                <form method="post" id="registerform" action="{{ route('agentregist.store') }}">
+                <form method="post" id="registerform" action="{{ route('doregist') }}">
                     @csrf
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">First Name</label>
-                                <input type="text" name="first_name"
-                                    class="form-control @error('first_name') is-invalid @enderror" id="name">
-                                @error('first_name')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name"
+                            class="form-control @error('name') is-invalid @enderror" id="name">
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="name" class="form-label">Last Name</label>
-                            <input type="text" name="last_name"
-                                class="form-control @error('last_name') is-invalid @enderror" id="name">
-                            @error('last_name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Address</label>
@@ -72,29 +58,10 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Country</label>
-                        <select name="country" class="form-control">
-                            <option value="">{{ __('-- Select --') }}</option>
-                            @foreach (get_country_lists() as $id => $name)
-                                <option @if (($user->country ?? '') == $id) selected @endif value="{{ $id }}">{{ $name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">State</label>
-                        <input type="text" name="state" class="form-control @error('state') is-invalid @enderror"
+                        <label for="name" class="form-label">Birthday</label>
+                        <input type="date" name="birtday" class="form-control @error('birtday') is-invalid @enderror"
                             id="name">
-                        @error('state')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">City</label>
-                        <input type="text" name="city" class="form-control @error('city') is-invalid @enderror"
-                            id="name">
-                        @error('city')
+                        @error('birtday')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

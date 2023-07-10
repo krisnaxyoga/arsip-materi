@@ -98,19 +98,15 @@
                             <div class="nav-link-icon"><i data-feather="user"></i></div>
                            materi
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('comment.index')}}">
                             <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
                            komentar
                         </a>
 
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('form.cetak')}}">
                             <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
                            cetak anggota
                         </a>
-                        {{-- <a class="nav-link" href="{{ route('dashboard.pengiriman.index') }}">
-                            <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
-                           Pengiriman
-                        </a> --}}
                     </div>
                 </div>
                 <div class="sidenav-footer">
@@ -122,7 +118,7 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
+            <main class="mt-4">
                 @yield('content')
             </main>
             <footer class="footer mt-auto footer-light">

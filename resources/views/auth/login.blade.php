@@ -52,7 +52,7 @@
                     </div> --}}
                     <button type="submit" class="btn btn-primary">LOGIN</button>
                 </form>
-                {{-- <p>you dont have account? <a class="text-success" href="{{ route('agentregist') }}">Sign Up</a></p> --}}
+                <p>you dont have account? <a class="text-success" href="{{ route('registerman') }}">Sign Up</a></p>
             </div>
         </div>
     </div>

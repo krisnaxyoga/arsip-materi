@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Materi;
+use App\Models\Anggota;
+use App\Models\Komentar;
+use App\Models\Petugas;
 
 class DashboardController extends Controller
 {
@@ -12,7 +16,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $anggota = Anggota::select('*')->count();
+        $materi = Materi::select('*')->count();
+        $komentar = Komentar::select('*')->count();
+        $petugas = Petugas::select('*')->count();
+        $data = Komentar::all();
+        return view('admin.index',compact('anggota','materi','komentar','petugas','data'));
     }
 
     /**

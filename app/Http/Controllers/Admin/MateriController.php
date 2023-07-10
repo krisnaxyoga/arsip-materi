@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Materi;
 use App\Models\Category;
+use App\Models\Petugas;
 
 use Illuminate\Support\Facades\File;
 
