@@ -38,6 +38,7 @@
                                     <tr>
                                         <td>
                                            <p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->user->name }}</p> 
+                                           <p class="@if($item->user->role_id == 2) text-secondary @else text-success @endif" style="font-size: 12px">{{ $item->user->role->role_name }}</p> 
                                         </td>
                                         <td><p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->comment }}</p></td>
                                     

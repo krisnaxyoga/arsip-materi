@@ -23,7 +23,10 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $item->user->name }}</td>
+                                        <td>{{ $item->user->name }}
+                                            <br>
+                                            <p class="@if($item->user->role_id == 2) text-secondary @else text-success @endif" style="font-size: 12px">{{ $item->user->role->role_name }}</p> 
+                                        </td>
                                         <td>{{ $item->comment }}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td>
