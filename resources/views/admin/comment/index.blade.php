@@ -16,6 +16,7 @@
                                     <tr>
                                         <th>user</th>
                                         <th>coment</th>
+                                        <th>time</th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
@@ -24,6 +25,7 @@
                                     <tr>
                                         <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->comment }}</td>
+                                        <td>{{$item->created_at}}</td>
                                         <td>
                                             <form class="d-inline" action="{{ route('comment.delete',$item->id) }}" method="POST" onSubmit="return confirm('Apakah anda yakin akan menghapus data ini?');">
                                                 @csrf

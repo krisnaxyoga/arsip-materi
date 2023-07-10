@@ -30,6 +30,7 @@
                                     <tr>
                                         <th>name</th>
                                         <th>comment</th>
+                                        <th>time</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,6 +40,7 @@
                                             <p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->user->name }}</p> 
                                          </td>
                                          <td><p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->comment }}</p></td>
+                                         <td><p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->created_at }}</p></td>
                                      
                                     </tr>
                                     @endforeach
