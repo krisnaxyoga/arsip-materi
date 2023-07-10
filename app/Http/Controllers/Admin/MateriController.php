@@ -110,13 +110,6 @@ class MateriController extends Controller
                 ->withErrors($validator->errors())
                 ->withInput($request->all());
         } else {
-            if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $filename = time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('files'), $filename);
-
-                // Lakukan hal lain yang diperlukan, seperti menyimpan nama file dalam database
-            }
             if ($request->file('file') != null) {
                 if ($request->hasFile('file')) {
                     $file = $request->file('file');

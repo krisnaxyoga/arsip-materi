@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Anggota;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Sertifikat;
+use App\Models\Anggota;
+use App\Models\Komentar;
+use App\Models\Materi;
 
 class DashboardController extends Controller
 {
@@ -12,15 +16,26 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('anggota.index');
+        $id = auth()->user()->id;
+        $anggota = Anggota::where('user_id',$id)->first();
+        $sertif = Sertifikat::where('anggota_id',$anggota->id)->count();
+        $koment = Komentar::where('user_id',$id)->count();
+        
+        $materi = Materi::select('*')->count();
+
+        return view('anggota.index',compact('sertif','koment','materi'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function sertif()
     {
-        //
+        $id = auth()->user()->id;
+        $anggota = Anggota::where('user_id',$id)->first();
+        $data = Sertifikat::where('anggota_id',$anggota->id)->get();
+
+        return view('anggota.sertif',compact('data'));
     }
 
     /**

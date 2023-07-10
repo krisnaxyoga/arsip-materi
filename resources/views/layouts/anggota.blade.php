@@ -21,8 +21,7 @@
   <body>
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
         <a class="navbar-brand h-100 text-truncate" href="#">
-            <img class="img-fluid" src="/images/logo.png"/>
-             Dashboard Admin
+             Dashboard anggota
         </a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
 
@@ -64,53 +63,23 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Main</div>
-                        <a class="nav-link" href="/admin">
+                        <a class="nav-link" href="/dashboard/anggota">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="{{ route('anggota.index') }}">
-                            <div class="nav-link-icon"><i data-feather="box"></i></div>
-                            anggota
+                        <a class="nav-link" href="{{route('dashboard.anggota.materi')}}">
+                            <div class="nav-link-icon"><i data-feather="book"></i></div>
+                            Materi
                         </a>
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#agentCollapse" aria-expanded="false" aria-controls="agentCollapse">
-                            <div class="nav-link-icon"><i data-feather="box"></i></div>
-                            tim multimedia
+                        <a class="nav-link" href="{{route('jamaattanya.index')}}">
+                            <div class="nav-link-icon"><i data-feather="message-circle"></i></div>
+                            jamaat tanya?
                         </a>
-                        {{-- <div id="agentCollapse" class="collapse">
-                            <!-- Isi menu -->
-                            <ul>
-                                <li class="list-unstyled">
-                                    <a class="nav-link" href="">All agent</a>
-                                </li>
-                                <li class="list-unstyled">
-                                    <a class="nav-link" href="">
-                                        Add New agent
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> --}}
                        <!-- Tombol untuk memicu collapse -->
-                       <a class="nav-link" href="{{ route('category.index') }}">
-                        <div class="nav-link-icon"><i data-feather="user"></i></div>
-                       category materi
-                    </a>
-                        <a class="nav-link" href="{{ route('materi.index') }}">
-                            <div class="nav-link-icon"><i data-feather="user"></i></div>
-                           materi
+                       <a class="nav-link" href="{{ route('dashboard.anggota.sertif') }}">
+                            <div class="nav-link-icon"><i data-feather="file"></i></div>
+                            Sertifikat
                         </a>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
-                           komentar
-                        </a>
-
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
-                           cetak anggota
-                        </a>
-                        {{-- <a class="nav-link" href="{{ route('dashboard.pengiriman.index') }}">
-                            <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
-                           Pengiriman
-                        </a> --}}
                     </div>
                 </div>
                 <div class="sidenav-footer">
@@ -122,7 +91,7 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
+            <main class="mt-3">
                 @yield('content')
             </main>
             <footer class="footer mt-auto footer-light">

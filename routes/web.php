@@ -52,5 +52,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 // untuk agent
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/dashboard/anggota', [\App\Http\Controllers\Anggota\DashboardController::class, 'index'])->name('dashboard.anggota');
-
+    Route::get('/dashboard/anggota/materi', [\App\Http\Controllers\Anggota\MateriController::class, 'index'])->name('dashboard.anggota.materi');
+    Route::resource('/anggota/jamaattanya', \App\Http\Controllers\Anggota\CommentController::class);
+    Route::get('/dashboard/anggota/sertif', [\App\Http\Controllers\Anggota\DashboardController::class, 'sertif'])->name('dashboard.anggota.sertif');
 });
