@@ -46,7 +46,8 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
 // untuk vendor
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/dashboard/petugas', [\App\Http\Controllers\Petugas\DashboardController::class, 'index'])->name('dashboard.petugas');
-
+    Route::resource('/arsipmateri', \App\Http\Controllers\Petugas\MateriController::class);
+    Route::resource('/petugas/commentpetugas', \App\Http\Controllers\Petugas\CommentController::class);
 });
 
 // untuk agent

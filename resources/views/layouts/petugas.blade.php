@@ -38,13 +38,7 @@
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="">
-                        <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                        Account
-                    </a>
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{-- {{ Auth::user()->name }} --}}
-                    </a>
+                   
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -64,53 +58,22 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Main</div>
-                        <a class="nav-link" href="/admin">
+                        <a class="nav-link" href="{{route('dashboard.petugas')}}">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="{{ route('anggota.index') }}">
-                            <div class="nav-link-icon"><i data-feather="box"></i></div>
-                            anggota
-                        </a>
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#agentCollapse" aria-expanded="false" aria-controls="agentCollapse">
-                            <div class="nav-link-icon"><i data-feather="box"></i></div>
-                            tim multimedia
-                        </a>
-                        {{-- <div id="agentCollapse" class="collapse">
-                            <!-- Isi menu -->
-                            <ul>
-                                <li class="list-unstyled">
-                                    <a class="nav-link" href="">All agent</a>
-                                </li>
-                                <li class="list-unstyled">
-                                    <a class="nav-link" href="">
-                                        Add New agent
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> --}}
-                       <!-- Tombol untuk memicu collapse -->
-                       <a class="nav-link" href="{{ route('category.index') }}">
-                        <div class="nav-link-icon"><i data-feather="user"></i></div>
-                       category materi
-                    </a>
-                        <a class="nav-link" href="{{ route('materi.index') }}">
-                            <div class="nav-link-icon"><i data-feather="user"></i></div>
+                        <a class="nav-link" href="{{ route('arsipmateri.index') }}">
+                            <div class="nav-link-icon"><i data-feather="book"></i></div>
                            materi
                         </a>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
+                        <a class="nav-link" href="{{route('commentpetugas.index')}}">
+                            <div class="nav-link-icon"><i class="fas fa-fw fa-comments"></i></div>
                            komentar
                         </a>
-
                         <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i class="fas fa-fw fa-chart-area"></i></div>
-                           cetak anggota
+                            <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                           sertifikat
                         </a>
-                        {{-- <a class="nav-link" href="{{ route('dashboard.pengiriman.index') }}">
-                            <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
-                           Pengiriman
-                        </a> --}}
                     </div>
                 </div>
                 <div class="sidenav-footer">
@@ -122,7 +85,7 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
+            <main class="mt-4">
                 @yield('content')
             </main>
             <footer class="footer mt-auto footer-light">

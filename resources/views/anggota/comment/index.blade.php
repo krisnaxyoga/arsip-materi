@@ -36,10 +36,10 @@
                                     @foreach ($data as $item)
                                     <tr>
                                         <td>
-                                           <p class="text-secondary @if($item->user->id == Auth::user()->id) text-primary @endif">{{ $item->user->name }}</p> 
-                                        </td>
-                                        <td><p class="text-secondary @if($item->user->id == Auth::user()->id) text-primary @endif">{{ $item->comment }}</p></td>
-                                    
+                                            <p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->user->name }}</p> 
+                                         </td>
+                                         <td><p class="@if($item->user->id == Auth::user()->id) text-primary @else text-dark @endif">{{ $item->comment }}</p></td>
+                                     
                                     </tr>
                                     @endforeach
                                 </tbody>
