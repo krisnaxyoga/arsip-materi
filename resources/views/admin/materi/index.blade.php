@@ -97,7 +97,7 @@
             window.location.reload();
         }else{
             $.ajax({
-            url: "{{route('dashboard.anggota.materi')}}",
+            url: "{{route('materi.index')}}",
             method: 'GET',
             data: { data:{category:nilaiInput} },
             success: function(response) {
