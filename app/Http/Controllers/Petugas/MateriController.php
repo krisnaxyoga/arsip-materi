@@ -17,11 +17,20 @@ class MateriController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Materi::all();
+        $category = $request->data;
+        
+        if ($category) {
+            $data = Materi::where('category_id', $category['category'])->get();
+            // return ($category);
+        } else {
+            $data = Materi::all();
+        }
 
-        return view('petugas.materi.index',compact('data'));
+        $category = Category::all();
+
+        return view('petugas.materi.index',compact('data','category'));
     }
 
     /**
