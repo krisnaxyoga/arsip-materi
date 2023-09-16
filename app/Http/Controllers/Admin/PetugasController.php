@@ -115,6 +115,8 @@ class PetugasController extends Controller
             $user->email = $request->email;
             $user->save();
 
+
+
             return redirect()
                 ->route('petugas.index')
                 ->with('message', 'Data berhasil disimpan.');
